@@ -1,0 +1,37 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "Data de Entrada:",
+      "wrap": true,
+      "maxLines": 0
+    },
+    {
+      "id": "checkin",
+      "type": "Input.Date",
+      "title": "Check In"
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "Data de Saída:",
+      "wrap": true,
+      "maxLines": 0
+    },
+    {
+      "id": "checkout",
+      "type": "Input.Date",
+      "title": "Check Out"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Cotar"
+    }
+  ]
+}

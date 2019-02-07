@@ -1,13 +1,14 @@
 {
-  "name": "hotel-robot-facebook",
-  "version": "0.1.0",
-  "private": true,
+  "dependencies": {
+    "bottender": "latest",
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
-  },
-  "dependencies": {
-    "bottender": "0.15.17",
-    "nodemon": "1.18.9"
   }
 }
