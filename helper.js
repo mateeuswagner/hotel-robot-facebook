@@ -36,6 +36,15 @@ const dateParser = (date_period) => {
     return formatted_dates;
 }
 
+const datesToPeriod = (checkin, checkout) => {
+    let date_period;
+    checkin = checkin.split('/');
+    checkout = checkout.split('/');
+
+    date_period = checkin.reverse().join('-') + '/' + checkout.reverse().join('-');
+    return date_period;
+}
+
 const getDates = (data) => {
     for (key of Object.keys(data)) {
         if (key.indexOf('date-period') > -1) {
@@ -49,6 +58,7 @@ module.exports = {
     textNormalize,
     intentFromValue,
     dateParser,
-    getDates
+    getDates,
+    datesToPeriod
 }
 

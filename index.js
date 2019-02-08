@@ -20,7 +20,6 @@ bot = new MessengerBot({
 
 bot.onEvent(async context => {
   const user = await context.getUserProfile();
-
   if (!context.state[user.id] || !context.state[user.id].welcomed) {
     let userState =  {};
     userState[user.id] = {welcomed: true};
@@ -46,11 +45,10 @@ bot.onEvent(async context => {
     return;
   }
 
-  //const text = helper.intentFromValue(context.event.text);
   const text = context.event.text;
   const res = await dialogFlowAccessor(text);
 
-  await findIntent(res.data.result.metadata.intentName, res.data, context);
+  await findIntent(res.data.result.metadata.intentName, res.data, context, user.id);
 });
 
 const server = createServer(bot, { verifyToken: config.messenger.verifyToken });

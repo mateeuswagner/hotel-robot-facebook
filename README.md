@@ -1,52 +1,52 @@
-This project was bootstrapped with
-[Bottender](https://github.com/Yoctol/bottender) init script.
+# Messenger hello world
 
-## Sending Feedback
+## Install and Run
 
-Always feel free to open issue to
-[Bottender](https://github.com/Yoctol/bottender/issues).
-
-## Folder Structure
-
-After creation, your project should look like this:
+Download this example or clone [bottender](https://github.com/Yoctol/bottender).
 
 ```
-my-bot/
-  .gitignore
-  node_modules/
-  bottender.config.js
-  index.js
-  package.json
-  README.md
-  yarn.lock
+curl https://codeload.github.com/Yoctol/bottender/tar.gz/master | tar -xz --strip=2 bottender-master/examples/messenger-hello-world
+cd messenger-hello-world
 ```
 
-### index.js
+Install dependencies:
 
-All functionalities start from here.\
-Mainly it's a server which listen on port 5000. You are encouraged to add more [event listener](https://bottender.js.org/docs/APIReference-Event)
-and [`Handler`](https://bottender.js.org/docs/APIReference-Handler) to enrich the bot.
+```
+npm install
+```
 
-See more examples, please refer to
-[Bottender examples](https://github.com/Yoctol/bottender/tree/master/examples).
+You must put `accessToken`, `appSecret` and `verifyToken` into `bottender.config.js`.
 
-### bottender.config.js
+After that, you can run the bot with this npm script:
 
-The config file for the bot.\
-We suggests you to put all platform configs into this file and use it as a parameter
-of createServer.
+```
+npm run dev
+```
 
-## Available Scripts
+This command will start server for bot developing at `http://localhost:5000`.
 
-There are two default scripts you can run:
+## Set webhook
 
-### `npm run dev`
+While the server running, you can run following command with global `bottender` to set up the webhook:
 
-Run the bot in the development mode.\
-It will automatically restart the bot if there are any changes in `index.js`.\
-For more information, check [nodemon's repo](https://github.com/remy/nodemon)
+```
+bottender messenger webhook set -w <YOUR_WEBHOOK_URL>
+```
 
-### `npm start`
+If you want to expose the server on your local development machine and get a secure URL, [ngrok](https://ngrok.com/) or [localtunnel](https://localtunnel.github.io/www/) may be good tools for you.
 
-Run the bot without being monitored.\
-The bot won't be restarted when you change anything in `index.js`
+> Note: You must put `appId`, `appSecret` and `verifyToken` into `bottender.config.js` before running this command.
+
+## Idea of this example
+
+This example is a simple bot running on [Messenger](https://www.messenger.com/).
+For more information, check our [Messenger guides](https://bottender.js.org/docs/Platforms-Messenger).
+
+## Related examples
+
+* [messenger-builder](../messenger-builder)
+* [console-hello-world](../console-hello-world)
+* [line-hello-world](../line-hello-world)
+* [slack-hello-world](../slack-hello-world)
+* [telegram-hello-world](../telegram-hello-world)
+* [viber-hello-world](../viber-hello-world)
